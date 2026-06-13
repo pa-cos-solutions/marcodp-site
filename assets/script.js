@@ -37,6 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
     badge.style.color = open ? '#2a9d8f' : '#e63946';
   }
 
+  // Pre-select the service in the booking form from a ?svc= URL param,
+  // so "Book ITP" / "Book service" buttons land with the right option chosen.
+  // Keys map to the option position (same order in RO and EN dropdowns).
+  var serviceSelect = document.querySelector('#serviciu');
+  if (serviceSelect) {
+    var svc = new URLSearchParams(window.location.search).get('svc');
+    var svcMap = { itp: 1, alignment: 4, diagnostics: 5 };
+    if (svc && svcMap[svc] != null && serviceSelect.options[svcMap[svc]]) {
+      serviceSelect.selectedIndex = svcMap[svc];
+    }
+  }
+
   // Simple front-end booking handler (no backend).
   // Replace the alert with a real endpoint (Formspree, EmailJS, WordPress form, etc.)
   var form = document.querySelector('#booking-form');
