@@ -11,7 +11,7 @@
   --blue-dark: #1422a0;
   --red: #d50003;
   --red-dark: #a80002;
-  --amber: #ffb703;
+  --accent: #6ea8ff;
   --green: #2a9d8f;
   --bg: #f5f7fa;
   --card: #ffffff;
@@ -88,7 +88,7 @@ h3 { font-size: 1.2rem; }
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 .brand .logo img { height: 30px; width: auto; display: block; }
-.brand small { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .14em; color: var(--amber); text-transform: uppercase; }
+.brand small { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
 .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
 .nav-links a {
   color: #cdd6e3; font-weight: 600; font-size: .95rem; padding: 8px 12px; border-radius: 8px; transition: color .15s, background .15s;
@@ -188,7 +188,7 @@ figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; tex
 
 /* ---------- Reviews ---------- */
 .review { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
-.stars { color: var(--amber); letter-spacing: 2px; margin-bottom: 10px; }
+.stars { color: var(--red); letter-spacing: 2px; margin-bottom: 10px; }
 .review p { font-style: italic; color: var(--text); }
 .review .who { margin-top: 14px; font-weight: 700; color: var(--navy); font-style: normal; }
 
@@ -221,7 +221,7 @@ figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; tex
 .badge-open { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--green); }
 
 /* placeholder highlight so you can spot what to fill in */
-.fill { background: #fff3cd; border-bottom: 2px dotted var(--amber); padding: 0 2px; }
+.fill { background: transparent; padding: 0 2px; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: #aab6c6; padding: 56px 0 24px; }
