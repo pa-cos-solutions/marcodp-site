@@ -16,14 +16,19 @@ python3 -m http.server 4321
 # deschide http://localhost:4321
 ```
 
-## ⚠️ De completat (marcat în pagini cu fundal galben — clasa `.fill`)
-- [ ] **Adresa exactă** (stradă, număr, cod poștal) — în footer, `contact.html` și schema JSON-LD din `index.html`
-- [ ] **Program de lucru real** — în `contact.html` ȘI în `assets/script.js` (obiectul `hours`, pentru statusul „Deschis/Închis acum")
-- [ ] **Email** — footer + `contact.html`
-- [ ] **Tarife ITP reale** — tabelul din `itp.html`
-- [ ] **Recenzii reale** (Google/Facebook) — `index.html`
-- [ ] **Linkuri Facebook & Instagram** — în toate footerele și în schema
-- [ ] **Coordonate GPS + embed Google Maps** — `src` din iframe-ul din `contact.html` și `geo` din schema
+## Date reale completate (iunie 2026)
+- [x] **Adresă:** Str. Mihai Viteazu nr. 104B, Zalău, jud. Sălaj
+- [x] **Email:** marius@marcodp.com
+- [x] **Program:** L–V 09:00–17:30, Sâmbătă 08:00–14:00, Duminică închis (și în `assets/script.js`, obiectul `hours`)
+- [x] **Hartă + coordonate GPS:** 47.225505, 23.010668 (iframe în `contact.html` + `geo` din schema)
+- [x] **Recenzii Google:** buton „Vezi recenziile pe Google" în secțiunea de recenzii
+- [x] **Foto reale** din site-ul marcodp.com (atelier + SUV pe stand) în `assets/img/`
+
+## ⚠️ Rămâne de completat
+- [ ] **Tarife ITP reale** — tabelul din `itp.html` / `en/itp.html` (singurele câmpuri `.fill` rămase, evidențiate galben)
+- [ ] **Cod poștal exact** — momentan „450000" generic în schema JSON-LD din `index.html`
+- [ ] **Linkuri Facebook & Instagram** — `href="#"` în footere + `sameAs` din schema
+- [ ] **Recenzii afișate** — cele 3 carduri sunt exemple; pot fi înlocuite cu citate reale
 - [ ] **Logo real** — înlocuiește pătratul „M" cu logo-ul firmei
 - [ ] **Formular** — acum deschide WhatsApp pre-completat; pentru email folosește Formspree/EmailJS sau formularul din WordPress
 
