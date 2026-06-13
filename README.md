@@ -31,7 +31,7 @@ python3 -m http.server 4321
 - [ ] **Tarife ITP reale** — tabelul din `itp.html` / `en/itp.html` (singurele câmpuri `.fill` rămase, evidențiate galben)
 - [ ] **Cod poștal exact** — momentan „450000" generic în schema JSON-LD din `index.html`
 - [ ] **Linkuri Facebook & Instagram** — `href="#"` în footere + `sameAs` din schema
-- [ ] **Recenzii afișate** — cele 3 carduri sunt exemple; pot fi înlocuite cu citate reale
+- [x] **Recenzii reale** preluate de pe profilul Google (mirror citymaps.ro): F. L., M. C., P. T. — 5★ fiecare
 - [ ] **Formular** — acum deschide WhatsApp pre-completat; pentru email folosește Formspree/EmailJS sau formularul din WordPress
 
 ## Telefon folosit peste tot
