@@ -49,8 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Simple front-end booking handler (no backend).
-  // Replace the alert with a real endpoint (Formspree, EmailJS, WordPress form, etc.)
+  // Booking form -> emails the shop via FormSubmit (no backend needed).
+  // Primary recipient is marius@marcodp.com; the rest are copied via _cc.
+  // First-time setup: marius@marcodp.com must click the one-time activation
+  // link FormSubmit emails after the first submission.
   var form = document.querySelector('#booking-form');
   if (form) {
     form.addEventListener('submit', function (ev) {
@@ -58,20 +60,36 @@ document.addEventListener('DOMContentLoaded', function () {
       var data = new FormData(form);
       var en = (document.documentElement.lang || 'ro').slice(0, 2) === 'en';
       var L = en
-        ? { t: 'ITP/Service appointment', name: 'Name', phone: 'Phone', plate: 'Plate no.', svc: 'Service', date: 'Preferred date', msg: 'Message' }
-        : { t: 'Programare ITP/Service', name: 'Nume', phone: 'Telefon', plate: 'Nr. înmatriculare', svc: 'Serviciu', date: 'Data dorită', msg: 'Mesaj' };
-      var msg =
-        L.t + '%0A' +
-        L.name + ': ' + encodeURIComponent(data.get('nume') || '') + '%0A' +
-        L.phone + ': ' + encodeURIComponent(data.get('telefon') || '') + '%0A' +
-        L.plate + ': ' + encodeURIComponent(data.get('numar') || '') + '%0A' +
-        L.svc + ': ' + encodeURIComponent(data.get('serviciu') || '') + '%0A' +
-        L.date + ': ' + encodeURIComponent(data.get('data') || '') + '%0A' +
-        L.msg + ': ' + encodeURIComponent(data.get('mesaj') || '');
-      // Opens WhatsApp with the prefilled request. Change the number if needed.
-      window.open('https://wa.me/40744773698?text=' + msg, '_blank');
-      var ok = form.querySelector('.form-ok');
-      if (ok) ok.style.display = 'block';
+        ? { subject: 'New appointment from the website', name: 'Name', phone: 'Phone', plate: 'Plate no.', svc: 'Service', date: 'Preferred date', msg: 'Message', err: 'Sorry, something went wrong. Please call us at 0744 773 698.' }
+        : { subject: 'Programare nouă de pe site', name: 'Nume', phone: 'Telefon', plate: 'Nr. înmatriculare', svc: 'Serviciu', date: 'Data dorită', msg: 'Mesaj', err: 'Ne pare rău, ceva n-a mers. Sună-ne la 0744 773 698.' };
+      var payload = {
+        _subject: L.subject,
+        _template: 'table',
+        _cc: 'mariusmadmax@yahoo.com,truta_diana@yahoo.com,truta_georgiana@yahoo.com,truta_corina@yahoo.com'
+      };
+      payload[L.name] = data.get('nume') || '';
+      payload[L.phone] = data.get('telefon') || '';
+      payload[L.plate] = data.get('numar') || '';
+      payload[L.svc] = data.get('serviciu') || '';
+      payload[L.date] = data.get('data') || '';
+      payload[L.msg] = data.get('mesaj') || '';
+
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/marius@marcodp.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function () {
+          var ok = form.querySelector('.form-ok');
+          if (ok) ok.style.display = 'block';
+          form.reset();
+        })
+        .catch(function () { alert(L.err); })
+        .finally(function () { if (btn) btn.disabled = false; });
     });
   }
 });
