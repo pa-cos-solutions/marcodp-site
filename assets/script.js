@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Booking form -> emails the shop via FormSubmit (no backend needed).
-  // Primary recipient is marius@marcodp.com; the rest are copied via _cc.
+  // Works the same on the static GitHub Pages site and later on WordPress.
+  // Primary recipient is marius@marcodp.com; the rest are copied via _cc
+  // (visible to each other — FormSubmit free has no true BCC).
   // First-time setup: marius@marcodp.com must click the one-time activation
   // link FormSubmit emails after the first submission.
   var form = document.querySelector('#booking-form');
