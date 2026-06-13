@@ -7,10 +7,10 @@
   --navy: #0d1b2a;
   --navy-2: #13263b;
   --navy-3: #1b3a52;
-  --blue: #2563eb;
-  --blue-dark: #1e40af;
-  --red: #e63946;
-  --red-dark: #c1121f;
+  --blue: #1b2fc9;
+  --blue-dark: #1422a0;
+  --red: #d50003;
+  --red-dark: #a80002;
   --amber: #ffb703;
   --green: #2a9d8f;
   --bg: #f5f7fa;
@@ -65,7 +65,7 @@ h3 { font-size: 1.2rem; }
   border: 2px solid transparent; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn--primary { background: var(--red); color: #fff; box-shadow: 0 8px 20px rgba(230,57,70,.35); }
+.btn--primary { background: var(--red); color: #fff; box-shadow: 0 8px 20px rgba(213,0,3,.35); }
 .btn--primary:hover { background: var(--red-dark); }
 .btn--ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
 .btn--ghost:hover { background: rgba(255,255,255,.12); }
@@ -82,10 +82,12 @@ h3 { font-size: 1.2rem; }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
 .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 1.25rem; }
 .brand .logo {
-  width: 38px; height: 38px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--red), var(--amber));
-  display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 1.1rem;
+  height: 42px; width: auto; border-radius: 9px;
+  background: #fff; padding: 5px 8px;
+  display: grid; place-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
+.brand .logo img { height: 30px; width: auto; display: block; }
 .brand small { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .14em; color: var(--amber); text-transform: uppercase; }
 .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
 .nav-links a {
@@ -111,7 +113,7 @@ h3 { font-size: 1.2rem; }
   position: relative; color: #fff; overflow: hidden;
   background:
     linear-gradient(180deg, rgba(13,27,42,.82), rgba(13,27,42,.93)),
-    radial-gradient(1200px 600px at 80% -10%, rgba(37,99,235,.30), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(27,47,201,.30), transparent 60%),
     url("img/hero-workshop.jpg") center/cover no-repeat,
     var(--navy);
 }
@@ -148,7 +150,7 @@ figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; tex
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .card .ico-box {
   width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center;
-  font-size: 1.6rem; background: rgba(37,99,235,.1); margin-bottom: 16px;
+  font-size: 1.6rem; background: rgba(27,47,201,.1); margin-bottom: 16px;
 }
 .card h3 { margin-bottom: 8px; }
 .card p { color: var(--muted); font-size: .96rem; }
@@ -202,7 +204,7 @@ figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; tex
 .form input, .form select, .form textarea {
   width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: #fbfcfe;
 }
-.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(27,47,201,.15); }
 .form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 /* ---------- Info / map ---------- */
