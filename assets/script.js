@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // "Deschis acum / Închis" status based on weekly hours.
   // EDIT these to match the real program (24h format). null = closed.
   var hours = {
-    1: ['08:00', '18:00'], // Luni
-    2: ['08:00', '18:00'], // Marți
-    3: ['08:00', '18:00'], // Miercuri
-    4: ['08:00', '18:00'], // Joi
-    5: ['08:00', '18:00'], // Vineri
-    6: ['09:00', '13:00'], // Sâmbătă
+    1: ['09:00', '17:30'], // Luni
+    2: ['09:00', '17:30'], // Marți
+    3: ['09:00', '17:30'], // Miercuri
+    4: ['09:00', '17:30'], // Joi
+    5: ['09:00', '17:30'], // Vineri
+    6: ['08:00', '14:00'], // Sâmbătă
     0: null                // Duminică
   };
   var badge = document.querySelector('[data-open-status]');

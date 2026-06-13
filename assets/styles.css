@@ -110,10 +110,23 @@ h3 { font-size: 1.2rem; }
 .hero {
   position: relative; color: #fff; overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(13,27,42,.85), rgba(13,27,42,.92)),
-    radial-gradient(1200px 600px at 80% -10%, rgba(37,99,235,.35), transparent 60%),
+    linear-gradient(180deg, rgba(13,27,42,.82), rgba(13,27,42,.93)),
+    radial-gradient(1200px 600px at 80% -10%, rgba(37,99,235,.30), transparent 60%),
+    url("img/hero-workshop.jpg") center/cover no-repeat,
     var(--navy);
 }
+
+/* ---------- Content images ---------- */
+.feature-img {
+  width: 100%; height: 100%; min-height: 280px; max-height: 460px;
+  object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+}
+.figure-band img {
+  width: 100%; height: clamp(220px, 38vw, 420px); object-fit: cover;
+  border-radius: var(--radius); box-shadow: var(--shadow-lg);
+}
+figure { margin: 0; }
+figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; text-align: center; }
 .hero-inner { padding: 90px 0 100px; max-width: 720px; }
 .hero h1 { color: #fff; }
 .hero p { color: #c6d0de; font-size: 1.18rem; margin: 18px 0 30px; }
