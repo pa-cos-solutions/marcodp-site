@@ -226,6 +226,7 @@ figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; tex
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: #aab6c6; padding: 56px 0 24px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 30px; }
+.footer-grid--slim { grid-template-columns: 1.6fr 1fr; gap: 48px; }
 .site-footer h4 { color: #fff; margin-bottom: 14px; font-size: 1rem; }
 .site-footer a { color: #aab6c6; }
 .site-footer a:hover { color: #fff; }
