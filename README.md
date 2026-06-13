@@ -6,7 +6,8 @@ Site static, mobil-first, în limba română. 4 pagini:
 - `itp.html` — Stație ITP (tarife, acte necesare, ce verificăm, FAQ)
 - `service.html` — Service Auto (geometrie 6D, listă servicii)
 - `contact.html` — Contact (formular programare, program, hartă)
-- `assets/styles.css`, `assets/script.js` — stil + interactivitate
+- `assets/styles.css`, `assets/script.js` — stil + interactivitate (partajate RO + EN)
+- `en/` — versiunea în engleză (aceleași 4 pagini); comutatorul RO/EN din meniu leagă ambele versiuni
 
 ## Cum îl previzualizezi local
 ```

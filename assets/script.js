@@ -30,7 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var e = parseInt(today[1].slice(0, 2)) * 60 + parseInt(today[1].slice(3));
       open = mins >= s && mins < e;
     }
-    badge.textContent = open ? '● Deschis acum' : '● Închis acum';
+    var isEn = (document.documentElement.lang || 'ro').slice(0, 2) === 'en';
+    badge.textContent = open
+      ? (isEn ? '● Open now' : '● Deschis acum')
+      : (isEn ? '● Closed now' : '● Închis acum');
     badge.style.color = open ? '#2a9d8f' : '#e63946';
   }
 
@@ -41,14 +44,18 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var data = new FormData(form);
+      var en = (document.documentElement.lang || 'ro').slice(0, 2) === 'en';
+      var L = en
+        ? { t: 'ITP/Service appointment', name: 'Name', phone: 'Phone', plate: 'Plate no.', svc: 'Service', date: 'Preferred date', msg: 'Message' }
+        : { t: 'Programare ITP/Service', name: 'Nume', phone: 'Telefon', plate: 'Nr. înmatriculare', svc: 'Serviciu', date: 'Data dorită', msg: 'Mesaj' };
       var msg =
-        'Programare ITP/Service%0A' +
-        'Nume: ' + encodeURIComponent(data.get('nume') || '') + '%0A' +
-        'Telefon: ' + encodeURIComponent(data.get('telefon') || '') + '%0A' +
-        'Nr. înmatriculare: ' + encodeURIComponent(data.get('numar') || '') + '%0A' +
-        'Serviciu: ' + encodeURIComponent(data.get('serviciu') || '') + '%0A' +
-        'Data dorită: ' + encodeURIComponent(data.get('data') || '') + '%0A' +
-        'Mesaj: ' + encodeURIComponent(data.get('mesaj') || '');
+        L.t + '%0A' +
+        L.name + ': ' + encodeURIComponent(data.get('nume') || '') + '%0A' +
+        L.phone + ': ' + encodeURIComponent(data.get('telefon') || '') + '%0A' +
+        L.plate + ': ' + encodeURIComponent(data.get('numar') || '') + '%0A' +
+        L.svc + ': ' + encodeURIComponent(data.get('serviciu') || '') + '%0A' +
+        L.date + ': ' + encodeURIComponent(data.get('data') || '') + '%0A' +
+        L.msg + ': ' + encodeURIComponent(data.get('mesaj') || '');
       // Opens WhatsApp with the prefilled request. Change the number if needed.
       window.open('https://wa.me/40744773698?text=' + msg, '_blank');
       var ok = form.querySelector('.form-ok');
