@@ -129,7 +129,7 @@ h3 { font-size: 1.2rem; }
 }
 figure { margin: 0; }
 figure figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; text-align: center; }
-.hero-inner { padding: 90px 0 100px; max-width: 720px; }
+.hero-inner { padding-top: 90px; padding-bottom: 100px; max-width: 720px; }
 .hero h1 { color: #fff; }
 .hero p { color: #c6d0de; font-size: 1.18rem; margin: 18px 0 30px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
