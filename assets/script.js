@@ -37,6 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
     badge.style.color = open ? '#2a9d8f' : '#e63946';
   }
 
+  // Years of experience, counted from the opening date (25 May 2005).
+  // Keeps the "X ani/years of experience" badge correct without manual edits.
+  var expEls = document.querySelectorAll('[data-exp-years]');
+  if (expEls.length) {
+    var start = new Date(2005, 4, 25); // month is 0-indexed: 4 = May
+    var now2 = new Date();
+    var years = now2.getFullYear() - start.getFullYear();
+    if (now2.getMonth() < start.getMonth() ||
+        (now2.getMonth() === start.getMonth() && now2.getDate() < start.getDate())) {
+      years--;
+    }
+    expEls.forEach(function (el) { el.textContent = years; });
+  }
+
   // Pre-select the service in the booking form from a ?svc= URL param,
   // so "Book ITP" / "Book service" buttons land with the right option chosen.
   // Keys map to the option position (same order in RO and EN dropdowns).
